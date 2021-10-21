@@ -9,8 +9,8 @@ This document describes the steps for integrating Basispay online payment gatewa
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
 ## Requirements
-o iOS 11.0+
-o Xcode 11.0+ 
+o iOS 13.0+
+o Xcode 12.0+ 
 o Swift 5.0+
 
 ## Installation
@@ -30,91 +30,71 @@ import BasisPay
 
 class PaymentProcessViewController: UIViewController {
     
-    var paymentGatewayViewController: PaymentGatewayController!
+    var basispayViewController: BasispayViewController!
     var amount:String?
     var titleValue:String?
     var descriptionValue:String?
     @IBOutlet weak var viewContainer: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        paymentGatewayViewController = PaymentGatewayController()
-        viewContainer.addSubview(paymentGatewayViewController.view)
-       setDefaults()
-         setInputDictionary()
-         checkAndGetResponse()
-     }
+        setDefaults()
+    }
 ```
 ## Step 2
 Assign the Payment defaults in your class which you have already recieved from the Basispay organization.
 
 ```
 private func setDefaults() {
-      paymentGatewayViewController.paymentDefaults = PaymentDefaults(apiKey: "", saltKey: "", returnUrl: "", endPoint: .Testing)
+              let paymentRequestDictionary = [
+             "orderReference" : "ORDER-REFERENCE-FROM-BACKEND",
+             "customerName" : titleValue ?? "",
+             "customerEmail" : "YXYXYX@gmail.com",
+             "customerMobile" : "824835038412",
+             "address" : "ZZZZZZXXXXXXX",
+             "postalCode" : "ZZZXXX",
+             "city" : "XXXXXX",
+             "region" : "YYYYYY",
+             "country" : "ZZZ",
+             //// optional parameters
+             "delivery[address]":"ZZZZZZXXXXXXX",
+             "delivery[customerName]":"XXXXX",
+             "delivery[customerMobile]":"824835038412",
+             "delivery[postalCode]":"ZZZXXX",
+             "delivery[city]":"XXXXXX",
+             "delivery[region]":"YYYYYY",
+             "delivery[country]":"ZZZ"
+         ]
 }    
 
 ```
 
 ## Step 3
-Pass the mandatory details regarding the product which you are going to use the payment gateway in your app.
+Pass the User Interface Connection details regarding the product which you are going to use the payment gateway in your app.
 
 ```
-private func setInputDictionary() {
-    guard let amountVal = amount,let titleVal = titleValue,let descriptionVal = descriptionValue else {
-        return
-    }
-    
-    let paymentRequestDictionary: NSDictionary = [
-        "orderId" : "253698",
-        "amount" : amountVal,
-        "currency" : "INR",
-        "description" : descriptionVal,
-        "name" : titleVal,
-        "email" : "qwerty@123gmail.com",
-        "phone" : "5876986087",
-        "addressLine1" : "address_line_1",
-        "addressLine2" : "address_line_2",
-        "city" : "city",
-        "state" : "state",
-        "country" : "country",
-        "zipCode" : "zip_code",
-        "udf1" : "Testing1",
-        "udf2" : "Testing2",
-        "udf3" : "Testing3",
-        "udf4" : "Testing4",
-        "udf5" : "Testing5"
-    ]
-    paymentGatewayViewController.setInputDictionary(inputDictionary: paymentRequestDictionary)
-    
-}
+        basispayViewController = BasispayViewController()
+        basispayViewController.delegate = self
+        basispayViewController.paymentRequestDictionary = paymentRequestDictionary
+        viewContainer.addSubview(basispayViewController.view)
 
 ```
 
 ## Step 4
-Delegate methods for the payment success and failure  can be handled through this protocol.
+Delegate methods for the onCloseClicked and OnPaymentConnectError  can be handled through this protocol.
 
 ```
-override func viewDidLoad(){
-paymentGatewayViewController.delegate = self
-}
 
 
-extension PaymentProcessViewController:PaymentGatewayDelegate {
-    func onPaymentSucess(response: BasisPaymentResponse) {
-        self.navigationController?.popViewController(animated: true)
-        let alertController = UIAlertController(title: "SUCCESS", message: "order Id \(response.order_id)", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        self.view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
+extension PaymentProcessViewController:BasispayDelegate {
+    func onPaymentConnectError(errormessage: String) {
+        print(errormessage)
     }
     
-    func onPaymentFailure(response: BasisPaymentResponse) {
+    func onCloseClicked() {
         self.navigationController?.popViewController(animated: true)
-        let alertController = UIAlertController(title: "FAILURE", message: " message - \(response.description)", preferredStyle: .alert)
-        let cancelAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        self.view.window?.rootViewController?.present(alertController, animated: true, completion: nil)
     }
 }
+
 ```
 ```
 

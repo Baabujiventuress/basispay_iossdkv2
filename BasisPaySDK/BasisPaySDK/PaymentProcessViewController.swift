@@ -11,7 +11,7 @@ import BasisPay
 
 class PaymentProcessViewController: UIViewController {
     
-    var paymentGatewayViewController: BasispayViewController!
+    var basispayViewController: BasispayViewController!
     var amount:String?
     var titleValue:String?
     var descriptionValue:String?
@@ -27,8 +27,8 @@ class PaymentProcessViewController: UIViewController {
     
     private func setDefaults() {
         let paymentRequestDictionary = [
-             "orderReference" : "nphvPwjamcR31QcYfi8HAg==",
-             "customerName" : "XXXXX",
+             "orderReference" : "XJU4XPnBJMvwpAJvgtanhw==",
+             "customerName" : titleValue ?? "",
              "customerEmail" : "YXYXYX@gmail.com",
              "customerMobile" : "824835038412",
              "address" : "ZZZZZZXXXXXXX",
@@ -36,6 +36,7 @@ class PaymentProcessViewController: UIViewController {
              "city" : "XXXXXX",
              "region" : "YYYYYY",
              "country" : "ZZZ",
+             //// optional parameters
              "delivery[address]":"ZZZZZZXXXXXXX",
              "delivery[customerName]":"XXXXX",
              "delivery[customerMobile]":"824835038412",
@@ -45,10 +46,10 @@ class PaymentProcessViewController: UIViewController {
              "delivery[country]":"ZZZ"
          ]
          
-        paymentGatewayViewController = BasispayViewController()
-        paymentGatewayViewController.delegate = self
-        paymentGatewayViewController.paymentRequestDictionary = paymentRequestDictionary
-        viewContainer.addSubview(paymentGatewayViewController.view)
+        basispayViewController = BasispayViewController()
+        basispayViewController.delegate = self
+        basispayViewController.paymentRequestDictionary = paymentRequestDictionary
+        viewContainer.addSubview(basispayViewController.view)
     }
     
   

@@ -32,9 +32,7 @@ class InitialViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? PaymentProcessViewController {
-            target.amount = amountButton.titleLabel?.text
             target.titleValue = titleLabel.text
-            target.descriptionValue = descriptionLabel.text
         }
     }
     @IBAction func payNowButtonClicked(_ sender: Any) {
