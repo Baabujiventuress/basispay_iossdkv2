@@ -3,12 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 52;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		843794D5272018D400A27C7D /* BasisPay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84308EAA254034F5005F9279 /* BasisPay.xcframework */; };
-		843794D6272018D400A27C7D /* BasisPay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84308EAA254034F5005F9279 /* BasisPay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18363FE42BDA7A620064000F /* BasisPay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18363FE32BDA7A610064000F /* BasisPay.xcframework */; };
 		84F57A6724F7EDEF00C265AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F57A6624F7EDEF00C265AA /* AppDelegate.swift */; };
 		84F57A6924F7EDEF00C265AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F57A6824F7EDEF00C265AA /* SceneDelegate.swift */; };
 		84F57A6E24F7EDEF00C265AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F57A6C24F7EDEF00C265AA /* Main.storyboard */; };
@@ -18,22 +17,8 @@
 		84F57A8224F7EEFA00C265AA /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F57A8024F7EEFA00C265AA /* InitialViewController.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXCopyFilesBuildPhase section */
-		843794D7272018D400A27C7D /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				843794D6272018D400A27C7D /* BasisPay.xcframework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
-
 /* Begin PBXFileReference section */
-		84308EAA254034F5005F9279 /* BasisPay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = BasisPay.xcframework; sourceTree = "<group>"; };
+		18363FE32BDA7A610064000F /* BasisPay.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = BasisPay.xcframework; path = "../../../SDK/untitled folder/bvpl_pg_iossdk-master/build/framework/BasisPay.xcframework"; sourceTree = "<group>"; };
 		84A136BB24F9160300467F3A /* ARKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ARKit.framework; path = System/Library/Frameworks/ARKit.framework; sourceTree = SDKROOT; };
 		84F57A6324F7EDEF00C265AA /* BasisPaySDK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BasisPaySDK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84F57A6624F7EDEF00C265AA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -51,7 +36,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				843794D5272018D400A27C7D /* BasisPay.xcframework in Frameworks */,
+				18363FE42BDA7A620064000F /* BasisPay.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -93,7 +78,7 @@
 		84F57A7A24F7EE3100C265AA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				84308EAA254034F5005F9279 /* BasisPay.xcframework */,
+				18363FE32BDA7A610064000F /* BasisPay.xcframework */,
 				84A136BB24F9160300467F3A /* ARKit.framework */,
 			);
 			name = Frameworks;
@@ -109,7 +94,6 @@
 				84F57A5F24F7EDEF00C265AA /* Sources */,
 				84F57A6024F7EDEF00C265AA /* Frameworks */,
 				84F57A6124F7EDEF00C265AA /* Resources */,
-				843794D7272018D400A27C7D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

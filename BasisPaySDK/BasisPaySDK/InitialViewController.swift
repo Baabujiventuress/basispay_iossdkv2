@@ -1,8 +1,10 @@
 //
 //  InitialViewController.swift
 //  BasisPay_PaymentGatewayUI
+//  BasisPay_V2 PG
 //
 //  Created by Saravanan on 25/08/20.
+//  Modified on 25/04/24
 //  Copyright © 2020 Apple. All rights reserved.
 //
 
@@ -32,7 +34,10 @@ class InitialViewController: UIViewController {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let target = segue.destination as? PaymentProcessViewController {
-            target.titleValue = titleLabel.text
+            target.apiKey = "YOUR-API-KEY"
+            target.returnURL = "RETURN-URL"
+            target.orderReference = "YOUR-ORDER-REFERENCE"
+            target.secureHash = "YOUR-SECURE-HASH"
         }
     }
     @IBAction func payNowButtonClicked(_ sender: Any) {
