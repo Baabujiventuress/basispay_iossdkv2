@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name          = "BasisPay_V2"
-  s.version       = "1.0.1"
+  s.version       = "1.0.2"
   s.summary       = "Payment gateway framework by Basispay team"
   s.description   = "iOS SDK kit for payment gateway transactions"
   s.homepage      = "https://github.com/Baabujiventuress/basispay_iossdkv2"
