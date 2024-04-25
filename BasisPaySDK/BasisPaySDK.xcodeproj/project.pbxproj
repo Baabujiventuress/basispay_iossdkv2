@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18E455F12BDA95A200743A11 /* BasisPay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18363FE32BDA7A610064000F /* BasisPay.xcframework */; };
-		18E455F22BDA95A200743A11 /* BasisPay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18363FE32BDA7A610064000F /* BasisPay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18E455F72BDA98D000743A11 /* BasisPay.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18363FE32BDA7A610064000F /* BasisPay.xcframework */; };
+		18E455F82BDA98D000743A11 /* BasisPay.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18363FE32BDA7A610064000F /* BasisPay.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84F57A6724F7EDEF00C265AA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F57A6624F7EDEF00C265AA /* AppDelegate.swift */; };
 		84F57A6924F7EDEF00C265AA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F57A6824F7EDEF00C265AA /* SceneDelegate.swift */; };
 		84F57A6E24F7EDEF00C265AA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84F57A6C24F7EDEF00C265AA /* Main.storyboard */; };
@@ -19,13 +19,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		18E455F32BDA95A200743A11 /* Embed Frameworks */ = {
+		18E455F92BDA98D000743A11 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				18E455F22BDA95A200743A11 /* BasisPay.xcframework in Embed Frameworks */,
+				18E455F82BDA98D000743A11 /* BasisPay.xcframework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -51,7 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18E455F12BDA95A200743A11 /* BasisPay.xcframework in Frameworks */,
+				18E455F72BDA98D000743A11 /* BasisPay.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,7 +109,7 @@
 				84F57A5F24F7EDEF00C265AA /* Sources */,
 				84F57A6024F7EDEF00C265AA /* Frameworks */,
 				84F57A6124F7EDEF00C265AA /* Resources */,
-				18E455F32BDA95A200743A11 /* Embed Frameworks */,
+				18E455F92BDA98D000743A11 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
