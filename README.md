@@ -19,7 +19,7 @@ BasisPay_V2 is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'BasisPay_V2' , '~> 1.0.1'
+pod 'BasisPay_V2' , '~> 1.0.2'
 ```
 
 ## Step 1
