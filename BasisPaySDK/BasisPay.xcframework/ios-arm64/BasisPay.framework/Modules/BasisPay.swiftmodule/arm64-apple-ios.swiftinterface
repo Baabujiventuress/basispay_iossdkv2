@@ -1,0 +1,55 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.10 (swiftlang-5.10.0.13 clang-1500.3.9.4)
+// swift-module-flags: -target arm64-apple-ios13.0 -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-bare-slash-regex -module-name BasisPay
+@_exported import BasisPay
+import Foundation
+import Swift
+import UIKit
+import WebKit
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public protocol PaymentGatewayDelegate {
+  func onPaymentSucess(reference: Swift.String, success: Swift.String)
+  func onPaymentFailure(reference: Swift.String, success: Swift.String)
+}
+public enum UrlEndpoint : Swift.String {
+  case Live
+  case Testing
+  public init?(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+  public var rawValue: Swift.String {
+    get
+  }
+}
+@objc @_Concurrency.MainActor(unsafe) open class PaymentGatewayController : UIKit.UIViewController {
+  @objc @_Concurrency.MainActor(unsafe) open var isResponseDataAvailable: Swift.Bool
+  @_Concurrency.MainActor(unsafe) public var paymentDefaults: BasisPay.PaymentDefaults!
+  @_Concurrency.MainActor(unsafe) public var delegate: (any BasisPay.PaymentGatewayDelegate)?
+  @_Concurrency.MainActor(unsafe) @objc dynamic public init()
+  @_Concurrency.MainActor(unsafe) @objc required dynamic public init?(coder aDecoder: Foundation.NSCoder)
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func viewDidLoad()
+  @_Concurrency.MainActor(unsafe) @objc override dynamic open func didReceiveMemoryWarning()
+  @objc @_Concurrency.MainActor(unsafe) open func setInputDictionary(inputDictionary: Foundation.NSDictionary)
+  @objc @_Concurrency.MainActor(unsafe) open func isResponseAvailable() -> Swift.Bool
+  @objc @_Concurrency.MainActor(unsafe) open func getResponseData() -> Foundation.NSDictionary
+  @objc deinit
+}
+extension BasisPay.PaymentGatewayController : WebKit.WKNavigationDelegate {
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, decidePolicyFor navigationAction: WebKit.WKNavigationAction, decisionHandler: @escaping (WebKit.WKNavigationActionPolicy) -> Swift.Void)
+  @_Concurrency.MainActor(unsafe) @objc dynamic public func webView(_ webView: WebKit.WKWebView, didFinish navigation: WebKit.WKNavigation!)
+}
+public struct PaymentDefaults {
+  public var apiKey: Swift.String!
+  public var returnUrl: Swift.String!
+  public var endPoint: BasisPay.UrlEndpoint
+  public init(apiKey: Swift.String, returnUrl: Swift.String, endPoint: BasisPay.UrlEndpoint)
+}
+public struct BasisPaymentResponse {
+  public var reference: Swift.String
+  public var success: Swift.Bool
+  public init(dict: [Swift.String : Any])
+}
+extension BasisPay.UrlEndpoint : Swift.Equatable {}
+extension BasisPay.UrlEndpoint : Swift.Hashable {}
+extension BasisPay.UrlEndpoint : Swift.RawRepresentable {}
